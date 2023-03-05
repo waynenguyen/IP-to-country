@@ -3,6 +3,8 @@ The program requires Python3 to run.
 Design
 The program makes use of an LRU cache for the caching portion and leaky bucket algorithm to implement rate-limitting.
 
+You can update the global throttling limit in ip_to_country_server.py
+
 Before running, please run:
 - pip3 install flask
 

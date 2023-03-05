@@ -1,5 +1,6 @@
 import time
 import threading
+from functools import wraps
 
 # Define leaky bucket rate limiting algorithm
 class LeakyBucket:
@@ -26,7 +27,7 @@ class LeakyBucket:
         self.last_check_time = now
 
         # Add new tokens based on elapsed time
-        new_tokens = time_elapsed * self.rate_limit
+        new_tokens = time_elapsed * self.rate_limit / 3600
 
         self.tokens = min(self.tokens + new_tokens, self.rate_limit)
 

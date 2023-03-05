@@ -23,7 +23,7 @@ class TestLeakyBucket(unittest.TestCase):
         self.assertTrue(bucket.acquire(5))
         self.assertFalse(bucket.acquire(5))
         self.assertTrue(bucket.acquire(4))
-        time.sleep(2)
+        bucket.last_check_time = time.monotonic() - 3600
         self.assertTrue(bucket.acquire())
 
 
